@@ -73,13 +73,6 @@ Key Press	<input onKeyDown={handleKeyPress} />
 Prevent Default	event.preventDefault()
 Stop Propagation	event.stopPropagation() -->
 
-<!-- what are hooks -->
-<!-- useState() -->
-<!-- useEffect() -->
-<!-- useRef()-->
-<!-- useMemo() -->
-<!-- useCallback -->
-
 <!-- condinal operation -->
 <!-- 
 Your components will often need to display different things depending on
@@ -123,31 +116,124 @@ better. -->
 enables you to define multiple pages/views and switch between them without a
 full page reload. -->
 
+<!-- useNavigate() -->
+<!-- link -->
+<!-- browerRouter , routes , route  path and element -->
+
+<!-- what are protected routes -->
+<!-- You can protect routes using authentication checks. -->
+<!-- import { Navigate } from "react-router-dom";
+
+function PrivateRoute({ children }) {
+  const isAuthenticated = false; // Change based on authentication logic
+  return isAuthenticated ? children : <Navigate to="/" />;
+}
+
+ Usage in Routes
+<Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+ -->
+
+<!-- how to take uper input and play with forms -->
+<!-- useState controlled  -->
+<!-- useRef  uncontrolled -->
+<!-- how to set routes/naviagtion -->
+<!-- dynamic routing and url parameter -->
 
 <!-- need revision -->
 
-<!-- life cycle methods -->
-<!--  functional lcm / class life cycle menthod-->
-<!-- how to take uper input and play with forms -->
-<!-- how to set routes/naviagtion -->
-<!-- dynamic routing and url parameter -->
-<!-- what are protected routes -->
-<!-- state magaement teqniqw -->
-<!-- lifting the stateup -->
+<!-- types of react hook -->
+<!-- what are hooks -->
+<!-- Hooks are built-in functions in React that let you use state and lifecycle features in functional components. -->
+<!-- useState() : The useState hook allows components to store and update state.-->
+<!-- useEffect() : The useEffect hook runs side effects in a component (like fetching data, subscriptions, or DOM manipulation). -->
+<!-- useRef() : The useRef hook allows us to access DOM elements and store mutable values without re-rendering.-->
+<!-- useMemo() : The useMemo hook caches expensive computations to avoid unnecessary recalculations. -->
+<!-- useCallback : The useCallback hook caches functions so they don’t get recreated on every render.-->
 
+<!-- useState()	Manage component state
+useEffect()	Run side effects (API calls, DOM updates)
+useRef()	Access DOM elements, store mutable values
+useMemo()	Optimize expensive calculations -->
+<!-- useCallback()	Cache functions to avoid re-creation -->
+
+<!-- useEffect() -->
+<!-- case 1 :  Running on Every Render (No Dependency) -->
+<!-- case 2 : Running Only on Mount ([empty] Dependency) -->
+<!-- case 3 : Running When a State or Prop Changes,If a dependency 
+([count]) is passed, the effect runs only when that state/prop changes. -->
+
+<!-- useEffect(() => {
+  Side effect code (e.g., API call, DOM update)
+  return () => {
+  Cleanup function (optional)
+  };
+}, [dependencies]); -->
+
+<!-- useMemo() hook -->
+<!-- The useMemo hook optimizes performance by 
+ memoizing (caching) expensive calculations so they don’t re-run unnecessarily. -->
+
+<!-- const memoizedValue = useMemo(() => computeExpensiveValue(dependency), [dependency]); -->
+<!-- 
+✅ Avoids unnecessary re-calculations
+✅ Improves performance in large lists or expensive operations
+✅ Helps prevent unnecessary re-renders -->
+
+<!-- 🎯 When to Use useMemo()?
+✅ Expensive computations (e.g., filtering, sorting large lists)
+✅ Optimizing re-renders (especially in slow UI updates)
+✅ Avoiding unnecessary calculations when unrelated state updates
+
+❌ When NOT to Use useMemo()?
+🚫 For simple calculations that don’t impact performance
+🚫 If re-rendering is already fast
+🚫 Overuse can lead to unnecessary complexity -->
+
+
+<!-- 
+🔹 useMemo() caches expensive computations and only recalculates them when dependencies change.
+🔹 It improves performance by preventing unnecessary re-renders.
+🔹 Use it wisely in scenarios where computations significantly slow down rendering -->
+
+
+
+<!-- useCallback() hook  -->
+<!-- The useCallback() hook is used to memoize functions, preventing them from being re-created on every render. It improves performance
+  by ensuring that a function reference remains the same unless its dependencies change. -->
+
+<!-- const memoizedFunction = useCallback(() => {
+   Function logic
+}, [dependencies]);
+ -->
+
+
+<!-- 
+🎯 When Should You Use useCallback()?
+✅ Passing functions as props to memoized components (React.memo)
+✅ Avoiding unnecessary re-creations of event handlers in performance-critical apps
+✅ Optimizing re-renders when dealing with child components
+
+-->
+
+
+<!-- state magaement teqniqw -->
+
+<!-- 
+✅ If your state is local → Use useState
+✅ If you need global state → Use Context API
+✅ If you need scalability & performance → Use Redux or Zustand
+✅ If you want React-friendly state management → Use Recoil -->
+
+
+<!-- life cycle methods -->
+<!-- functional lcm / class life cycle menthod-->
+<!-- lifting the stateup -->
 <!-- redux -->
 
 <!-- Fetching / manageming apies in react -->
 <!-- Fetch api , axios for http request use effect()-->
 <!-- handle errors -->
 <!-- diaplay ui using apis -->
-
-<!-- types of react hook -->
-<!-- useState() -->
-<!-- useEffect() -->
-<!-- useRef()-->
-<!-- useMemo() -->
-<!-- useCallback -->
 
 <!-- optimize the performance of our website -->
 <!-- memoization -->
