@@ -1,0 +1,20 @@
+.first{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 170vh;
+width: 90vw;
+gap: 50px;
+background-color: aquamarine;
+}
+
+.logo{
+ scale: 2;
+}
+
+.ptag{
+    font-size: 25px;
+    color: blue;
+    margin-left: 100px;
+}

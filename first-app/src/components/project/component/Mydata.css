@@ -1,0 +1,7 @@
+.project-container{
+    display: flex;
+    gap: 50px;
+    background-color: bisque;
+    justify-content: center;
+    align-items: center;
+}
