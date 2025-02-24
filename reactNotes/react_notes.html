@@ -1,0 +1,165 @@
+<!-- Introduction to react -->
+<!-- advantages of react -->
+
+<!-- React is a popular JavaScript library for building user interfaces, primarily developed and maintained by Facebook (now Meta).
+  It allows developers to create reusable UI components and manage the state efficiently. 
+  React follows a component-based architecture and uses a virtual DOM for optimized rendering.
+
+  react (javascript librarey)
+  it uses virtual dom technology
+  and components based artictecture
+
+  html , css and js 
+
+Advantages of React
+Component-Based Architecture – Breaks UI into reusable components for better maintainability.
+Virtual DOM – Improves performance by updating only changed parts of the UI.
+One-Way Data Binding – Ensures predictable data flow, making debugging easier.
+Reusable Components – Saves time by using pre-built components across the application.
+Strong Community Support – Backed by Meta and a large developer community.
+SEO-Friendly – Faster rendering improves SEO compared to traditional JavaScript frameworks.
+Easy to Learn – Uses JSX, which is similar to HTML, making it accessible for beginners.
+Rich Ecosystem – Supports state management libraries like Redux, Context API, and integrations with various tools. -->
+
+<!-- Difference Between Virtual DOM and Real DOM
+Feature	Virtual DOM	Real DOM
+Definition	A lightweight copy of the real DOM that React uses to improve performance.	The actual structure of HTML elements rendered in the browser.
+Update Speed	Faster because it updates only the changed parts.	Slower because it updates the entire UI.
+Efficiency	Uses diffing algorithm to find changes and update only necessary parts.	Updates all elements even if only one part of the UI changes.
+Performance	High performance due to minimal direct manipulation of the DOM.	Slower performance as changes directly affect the UI.
+Re-rendering	Updates only the components that have changed.	Redraws the entire UI for any change.
+Memory Usage	Efficient, as React keeps a lightweight virtual representation.	Can consume more memory and processing power. -->
+
+<!-- installation of react  / node js -->
+<!-- how to setup basic raeact project -->
+
+<!-- what is markup -->
+<!-- jsx (html and js) -->
+
+<!-- react basics -->
+
+<!-- functional component / class component -->
+
+<!-- When to Use Functional vs. Class Components?
+✅ Use Functional Components (Recommended):
+
+When writing new React applications.
+If you need state or side effects, use Hooks.
+When you want cleaner, more modern, and maintainable code.
+❌ Use Class Components (Only if required):
+
+When working with older React projects.
+If you need to use lifecycle methods without refactoring to Hooks. -->
+<!-- how react is rendering the ui  -->
+<!-- what is props , how to pass that -->
+<!-- props (short for properties) are used to pass data from a parent component to a child component in React. 
+ They are read-only and cannot be modified inside the child component. -->
+
+<!-- state management ans what is state -->
+
+<!-- State is a built-in object in React that stores data within a 
+ component and causes re-renders when updated. -->
+
+<!-- react rerender , state variable changes , props from pareent is changed, when parent is rerendered! -->
+
+<!-- handling events in react -->
+
+<!-- Event Type	Example -->
+<!-- Click	<button onClick={handleClick}>Click</button>
+Form Submit	<form onSubmit={handleSubmit}>...</form>
+Input Change	<input onChange={handleChange} />
+Mouse Hover	<div onMouseEnter={handleHover}>Hover</div>
+Key Press	<input onKeyDown={handleKeyPress} />
+Prevent Default	event.preventDefault()
+Stop Propagation	event.stopPropagation() -->
+
+<!-- what are hooks -->
+<!-- useState() -->
+<!-- useEffect() -->
+<!-- useRef()-->
+<!-- useMemo() -->
+<!-- useCallback -->
+
+<!-- condinal operation -->
+<!-- 
+Your components will often need to display different things depending on
+different conditions. In React, you can conditionally render JSX using
+JavaScript syntax like if statements, &&, and ? : operators. -->
+
+<!-- how to work with map() -->
+
+<!-- what are keys in list -->
+<!-- Keys tell React which array item each component corresponds to, so that it can
+match them up later. This becomes important if your array items can move (e.g.
+due to sorting), get inserted, or get deleted. A well-chosen key helps React
+infer what exactly has happened, and make the correct updates to the DOM tree. -->
+
+<!-- pure/impure components, why we need that -->
+
+<!-- pure: doesnt modify external variable / object,for the same input same output  -->
+
+<!-- every react compoent should be build pure , so that we can use it any where and make it resulable -->
+
+<!-- controlled and un controlled components -->
+
+<!-- A controlled component is a component where React controls
+  the form element’s value using useState. -->
+
+<!-- An uncontrolled component lets the DOM handle the form element’s 
+   state using useRef instead of useState. -->
+
+<!-- props drilling -->
+
+<!-- context api (global state managemnt) -->
+
+<!-- Problems with Props Drilling , Solutions to Avoid Props Drilling -->
+<!-- If the data is only passed down one or two levels, props drilling is fine. But
+if multiple levels are involved, Context API or state management solutions are
+better. -->
+
+<!-- react router -->
+
+<!-- React Router is a library for handling navigation in React applications. It
+enables you to define multiple pages/views and switch between them without a
+full page reload. -->
+
+
+<!-- need revision -->
+
+<!-- life cycle methods -->
+<!--  functional lcm / class life cycle menthod-->
+<!-- how to take uper input and play with forms -->
+<!-- how to set routes/naviagtion -->
+<!-- dynamic routing and url parameter -->
+<!-- what are protected routes -->
+<!-- state magaement teqniqw -->
+<!-- lifting the stateup -->
+
+<!-- redux -->
+
+<!-- Fetching / manageming apies in react -->
+<!-- Fetch api , axios for http request use effect()-->
+<!-- handle errors -->
+<!-- diaplay ui using apis -->
+
+<!-- types of react hook -->
+<!-- useState() -->
+<!-- useEffect() -->
+<!-- useRef()-->
+<!-- useMemo() -->
+<!-- useCallback -->
+
+<!-- optimize the performance of our website -->
+<!-- memoization -->
+<!-- lazyloading concept -->
+<!-- code splitting -->
+
+<!-- how to apply styles in react -->
+<!-- normal css -->
+<!-- tailwind css -->
+<!-- materail ui -->
+
+<!-- third party libraries -->
+<!-- framer motion (animation) ,react icons , chart.js-->
+
+<!-- how to deploy our application -->
