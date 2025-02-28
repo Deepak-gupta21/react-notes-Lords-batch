@@ -36,6 +36,14 @@ Memory Usage	Efficient, as React keeps a lightweight virtual representation.	Can
 <!-- what is markup -->
 <!-- jsx (html and js) -->
 
+<!-- markup (html + js ) -->
+
+<!-- html  ====> index.html 
+
+js ====> index.js -->
+
+(js + html ) ====> app.jsx
+
 <!-- react basics -->
 
 <!-- functional component / class component -->
@@ -148,7 +156,7 @@ function PrivateRoute({ children }) {
 <!-- useEffect() : The useEffect hook runs side effects in a component (like fetching data, subscriptions, or DOM manipulation). -->
 <!-- useRef() : The useRef hook allows us to access DOM elements and store mutable values without re-rendering.-->
 <!-- useMemo() : The useMemo hook caches expensive computations to avoid unnecessary recalculations. -->
-<!-- useCallback : The useCallback hook caches functions so they don’t get recreated on every render.-->
+<!-- useCallback() : The useCallback hook caches functions so they don’t get recreated on every render.-->
 
 <!-- useState()	Manage component state
 useEffect()	Run side effects (API calls, DOM updates)
@@ -189,13 +197,10 @@ useMemo()	Optimize expensive calculations -->
 🚫 If re-rendering is already fast
 🚫 Overuse can lead to unnecessary complexity -->
 
-
 <!-- 
 🔹 useMemo() caches expensive computations and only recalculates them when dependencies change.
 🔹 It improves performance by preventing unnecessary re-renders.
 🔹 Use it wisely in scenarios where computations significantly slow down rendering -->
-
-
 
 <!-- useCallback() hook  -->
 <!-- The useCallback() hook is used to memoize functions, preventing them from being re-created on every render. It improves performance
@@ -206,7 +211,6 @@ useMemo()	Optimize expensive calculations -->
 }, [dependencies]);
  -->
 
-
 <!-- 
 🎯 When Should You Use useCallback()?
 ✅ Passing functions as props to memoized components (React.memo)
@@ -215,6 +219,16 @@ useMemo()	Optimize expensive calculations -->
 
 -->
 
+<!-- useCallback() vs. useMemo()
+
+   Hook          	Purpose	Returns	Use Case
+
+useMemo()	          Memoizes values	A computed value	
+                    Caching expensive calculations
+
+
+useCallback()	      Memoizes functions	A function	
+                    Avoiding unnecessary function re-creations -->
 
 <!-- state magaement teqniqw -->
 
@@ -224,27 +238,126 @@ useMemo()	Optimize expensive calculations -->
 ✅ If you need scalability & performance → Use Redux or Zustand
 ✅ If you want React-friendly state management → Use Recoil -->
 
-
 <!-- life cycle methods -->
+
+<!-- life cycle methods are avaliable when we are working on class based components !  -->
+<!-- as we are working on functional based components, so we can mimic behaviour of lifecycle methods using a hook 
+  useEffect() -->
+
+<!-- In React, lifecycle methods are special functions that execute at different phases of a component's life cycle. These methods apply only to class components, but their behavior can be mimicked in functional components using hooks like useEffect(). -->
+<!-- 1 : componentDidMount() 
+2 : compoentDidUpdate() 
+3 : componentWillUnmount() 
+
 <!-- functional lcm / class life cycle menthod-->
-<!-- lifting the stateup -->
-<!-- redux -->
+
+<!--
+1 : useEffect 1st type : Running on Every Render (No Dependency) 
+Runs after the component is inserted into the DOM. Used for API calls,
+ event listeners, etc.
+
+
+2 : useEffect 2st type : Running Only on Mount ([with] Dependency)
+Runs after the component updates. Used for API calls, updating the DOM.
+
+
+
+3 : useEffect 3st type : Running the return statement/clean up
+Runs just before the component is removed. Used for cleanup 
+(e.g., remove event listeners). -->
 
 <!-- Fetching / manageming apies in react -->
-<!-- Fetch api , axios for http request use effect()-->
-<!-- handle errors -->
-<!-- diaplay ui using apis -->
 
+<!-- Fetching & Managing APIs in React 🚀 In React, API calls are commonly made using
+fetch() or libraries like axios. These calls typically occur inside lifecycle
+methods (class components) or React hooks (functional components). -->
+
+<!-- Since functional components don’t have lifecycle methods, 
+ we use the useEffect() hook to fetch data. -->
+
+<!-- 
+ Why useEffect()?
+Replaces componentDidMount() for fetching data.
+Runs only once ([] dependency array) to avoid unnecessary re-fetching.
+Cleans up if needed (like removing event listeners). -->
+
+<!-- Fetch api , axios for http request use effect()-->
+<!-- Why Use Axios?
+Simplifies API calls (no need for response.json()).
+Better error handling with catch().
+Automatically parses JSON responses.
+ -->
+
+<!-- 
+✅ fetch() vs axios → Axios is simpler but requires installation.
+✅ useEffect() for API calls → Ensures side effects like fetching data run properly.
+✅ Handle loading & errors → Improve UX.
+✅ Cancel API calls to prevent memory leaks using AbortController. -->
+
+<!-- handle errors -->
+
+<!-- Error handling in React is essential for better user experience and debugging 
+ issues efficiently. Below are different ways to handle errors in React applications. -->
+<!-- display ui using apis -->
+<!-- 
+ 📌 Summary: Best Practices
+Error Type	                  Solution Example
+API Errors	                  try...catch inside useEffect()
+Event Handler Errors         	try...catch in event functions
+Route Not Found	Route         path="*" for 404 pages -->
+
+<!-- lazyloading concept -->
+
+<!-- Lazy Loading in React
+In React, Lazy loading is a technique that allows you to load components,
+ modules, or assets asynchronously, improving the loading time of your application.
+ It can be achieved by using the built-in React.lazy() method and Suspense component. -->
+
+<!-- Implement Lazy Loding with React.Lazy method
+
+const MyComponent = React.lazy(() => import('./MyComponent')); -->
+
+<!-- <Suspense fallback={<div>Loading...</div>}>
+  <MyComponent />
+</Suspense> -->
+
+<!-- React Suspense provides better feedback to the user and improves the user experience 
+ as a user is not facing any blank screen or space while the content is being loaded.  -->
+
+<!-- React Suspense is designed to handle the loading of the components that make asynchronous API requests. React Suspense can be used by wrapping the <Suspense> 
+  component and specifying the fallback content displayed while the component or data is loading.  -->
+
+<!-- Code-splitting: It is an effective technique for optimizing the performance and
+efficiency of web applications, especially those with large code bases. By
+reducing the amount of code that needs to be loaded when a page first loads,
+code splitting can improve the user experience and make your application more
+responsive and fast. -->
+
+<!-- Advantages
+Lazy loading allows you to use server resources more efficiently by loading only the resources you need. This is very important for high-traffic applications or when server resources are tight. 
+A quicker initial load time can be achieved by using lazy loading, which minimizes the amount of code that must be downloaded and parsed when the page first loads. This can speed up your application’s first load time greatly.        -->
+
+<!-- Conclusion React Lazy Loading is a powerful technique that significantly
+improves the performance of web applications built with React. One of the key
+benefits of lazy loading is that it can help improve the Time to Interactive
+(TTI) metric, which is the time it takes for a page to become interactive and
+responsive. By delaying the loading of non-critical components until the page
+has finished loading, lazy loading reduces TTI and provides a more engaging user
+experience. -->
+
+
+
+
+
+
+<!-- lifting the stateup -->
+<!-- redux -->
 <!-- optimize the performance of our website -->
 <!-- memoization -->
-<!-- lazyloading concept -->
-<!-- code splitting -->
-
 <!-- how to apply styles in react -->
 <!-- normal css -->
 <!-- tailwind css -->
 <!-- materail ui -->
-
 <!-- third party libraries -->
 <!-- framer motion (animation) ,react icons , chart.js-->
 
