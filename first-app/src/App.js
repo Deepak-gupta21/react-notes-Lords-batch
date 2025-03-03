@@ -16,6 +16,11 @@ const Unmounting = lazy(() => import("./components/lifeCycleMethods/Unmounting")
 const Mimic = lazy(() => import("./components/lifeCycleMethods/mimicBehaviour"));
 const FetchDataFunctional = lazy(() => import("./components/fetchingData/Fetch"));
 const FetchWithAxios = lazy(() => import("./components/fetchingData/Axios"));
+const Parent = lazy(()=>import("./components/stateLiftUp/parent"));
+const EventBubbling = lazy(()=>import("./components/eventPropagation/EventBubbling"));
+const EventCapturing = lazy(()=>import("./components/eventPropagation/EventCapturing"));
+const EventBubblingExample= lazy(()=>import("./components/eventPropagation/Example_bubling"));
+
 // import Display from './components/display/Display';
 
 const Display = lazy(() => import("./components/display/Display"));
@@ -43,6 +48,13 @@ const App = () => {
           <Link to="/FetchDataFunctional"> FetchDataFunctional</Link> |
           <Link to="/FetchWithAxios"> FetchWithAxios</Link> |
           <Link to="/Project">Display project</Link> |
+          <Link to="/Parent">Parent</Link> |
+          <Link to="/EventBubbling">EventBubbling </Link> |
+          <Link to="/EventCapturing">EventCapturing </Link> |
+          <Link to="/EventBubblingExample">EventBubblingExample </Link> |
+          
+          
+          
         </nav>
 
         <Routes>
@@ -80,6 +92,11 @@ const App = () => {
           />
           <Route path="/FetchWithAxios" element={<FetchWithAxios />} />
           <Route path="/Project" element={<Display />} />
+          <Route path="/Parent" element={<Parent />} />
+          <Route path="/EventBubbling" element={<EventBubbling  />} />
+          <Route path="/EventCapturing" element={<EventCapturing  />} />
+          <Route path="/EventBubblingExample" element={<EventBubblingExample  />} />
+          
         </Routes>
       </BrowserRouter>
     </Suspense>
