@@ -1,0 +1,41 @@
+<!-- AJAX (Asynchronous JavaScript and XML)
+AJAX is a technique used in web development to send and receive data from a server asynchronously without refreshing the entire page. It allows for dynamic content updates, making web applications more interactive and responsive.
+
+How AJAX Works
+User Action – A user triggers an event, such as clicking a button or submitting a form.
+AJAX Request Sent – JavaScript creates an XMLHttpRequest (XHR) or uses the modern fetch() API to send a request to the server.
+Server Processes Request – The server processes the request and sends a response (often in JSON format).
+AJAX Receives Response – The client-side JavaScript receives the response.
+Update the Web Page – The JavaScript updates the webpage dynamically without a full reload.
+
+AJAX Example using XMLHttpRequest
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/1", true);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(JSON.parse(xhr.responseText));
+    }
+};
+xhr.send();
+
+
+
+
+AJAX Example using fetch() (Modern Approach)
+
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error("Error:", error));
+
+
+
+
+  
+AJAX Uses in Web Development
+Live Search (e.g., Google search suggestions)
+Form Validation without Page Reload
+Fetching Data from APIs
+Auto-refreshing Feeds (e.g., Twitter, Facebook)
+Dynamic Content Loading (e.g., Infinite Scrolling) -->

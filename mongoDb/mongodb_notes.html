@@ -1,0 +1,109 @@
+<!-- Introduction to mongodb -->
+<!-- nosql vs sql -->
+<!-- diff between mongodb and mysql databases -->
+<!-- Installation method of mongodb (Atlas / Compass) -->
+<!-- Database, collections and documents -->
+<!-- creating database, collection -->
+<!-- Json like Bson format -->
+<!-- basic crud operation -->
+<!-- create: insertOne(),insertMany() -->
+<!-- read: find(),findOne() -->
+<!-- update: updateOne(),updateMany() -->
+<!-- delete: deleteOne(),deleteMany() -->
+<!-- Query data: sorting (1)(-1) -->
+<!-- Limiting data : using Limit() method -->
+<!-- Comparison operators in mongodb -->
+<!-- $eq,$gt,$gte,$lt,$lte,$ne,$in,$nin -->
+<!-- Logical Operator in mongodb -->
+<!-- ($or,$not,$and) -->
+<!-- connection of mongodb string to vscode and playground -->
+<!-- Quering inside embedded (nested)documents usinf $elemMatch -->
+<!-- The $elemMatch operator is used to match an array of embedded documents based on multiple conditions. -->
+<!-- Schema design -->
+<!-- Embedded documents , Referenced documents -->
+<!-- When to Use Embedding vs. Referencing? -->
+<!-- Criteria                            	Embedding ✅	      Referencing ✅
+ 
+ Data is always queried together	    ✅ Yes	❌ No
+ Data grows frequently	                ❌ No	✅ Yes
+ Data updates frequently	            ❌ No	✅ Yes
+ One-to-Few Relationship	            ✅ Yes	❌ No
+ One-to-Many Relationship	            ❌ No	✅ Yes
+  -->
+
+<!-- Data Modeling Strategies in MongoDB -->
+ <!-- ✅ 1. Embedding (Denormalization) -->
+  <!-- ✅ 2. Referencing (Normalization) -->
+  <!-- ✅ 3. Hybrid Approach (Partial Embedding + Referencing) -->
+   
+  
+  
+  <!-- 2️⃣ Choosing the Right Strategy
+Criteria	                       Embedding ✅	Referencing ✅	Hybrid ✅
+Data is always queried together 	✅ Yes	❌ No	✅ Yes
+Data grows frequently	            ❌ No	✅ Yes	✅ Yes
+Data updates frequently	            ❌ No	✅ Yes	✅ Yes
+One-to-Few Relationship         	✅ Yes	❌ No	✅ Yes
+One-to-Many Relationship           	❌ No	✅ Yes	✅ Yes
+ -->
+
+
+ <!-- Use embedding for small, tightly connected data.
+Use referencing for large, independent data.
+Use a hybrid approach for optimized performance.
+ -->
+
+
+<!-- Indexes in MongoDB -->
+
+<!-- Indexes in MongoDB improve query performance by allowing the 
+ database to find and retrieve documents faster, instead of scanning
+  every document in a collection. They work similarly to indexes in books,
+   helping MongoDB locate data quickly. -->
+
+<!-- 
+   1️⃣ What are Indexes? -->
+   <!-- By default, MongoDB creates an _id index for every document.
+   Without indexes, MongoDB performs a full collection scan, which is slow.
+   Indexes speed up queries by reducing the number of documents MongoDB needs to search. -->
+   <!-- 🔹 Example:
+   Imagine you have a collection with 100,000 user documents.
+   
+   Without an index: MongoDB scans all documents to find a user by email.
+   With an index on email: MongoDB directly finds the document much faster. -->
+
+<!-- Unique Index (Ensures no duplicate in the collection.)-->
+ <!--  Sparse Index (Ignores Missing Fields) -->
+   <!-- The explain() method shows how MongoDB executes a query and whether it's using an index. -->
+
+
+<!-- 
+if not using index:COLLSCAN (Collection Scan) appears in the output,
+if using index:IXSCAN (Index Scan) appears in the output. -->
+
+
+<!-- To check all indexes in a collection: db.users.getIndexes(); -->
+<!-- Indexes improve query performance but use extra storage.
+Use createIndex() to define indexes for better speed.
+Use explain() to check if MongoDB is using an index.
+Monitor indexes with getIndexes(). -->
+<!-- createIndex() -->
+<!-- explain() -->
+
+
+
+<!-- Aggregation Pipelines -->
+<!-- $match : Filters documents based on conditions-->
+<!-- $group : Groups documents and performs calculations -->
+<!-- $project : Reshapes the output-->
+
+	
+
+<!-- connecting mondodb database in backend server using mongoose -->
+ <!-- Mongoose is a MongoDB object modeling tool designed to work in an
+   asynchronous environment. Mongoose supports Node.js and Deno (alpha). -->
+<!--mongoose librery , schema , model -->
+
+
+<!-- securing databse , backup -->
+<!-- user role and authentication -->
