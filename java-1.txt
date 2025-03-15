@@ -1,0 +1,484 @@
+1 : Exception handling:
+(try-catch,throw,throws,custon exceptions)
+Link : https://www.w3schools.com/java/java_try_catch.asp
+
+
+Type of errors: 
+(compile time erros: syntax error , semantic error )
+(Run time errors : occurs during exceution of program)
+
+Exception hierarchy : object > throwable > errors / Exception > 
+
+
+
+
+
+
+
+The throw : keyword in Java is used to explicitly throw an exception from a method or any block of code. We can throw either checked or unchecked exception. The throw keyword is mainly used to throw custom exceptions. 
+Syntax of throw in Java
+throw Instance
+
+
+throws : is a keyword in Java that is used in the signature of a method to indicate that this method might throw one of the listed type exceptions. The caller to these methods has to handle the exception using a try-catch block. 
+syntax: type method_name(parameters) throws exception_list
+throws keyword is required only for checked exceptions and usage of the throws keyword for unchecked exceptions is meaningless.
+throws keyword is required only to convince the compiler and usage of the throws keyword does not prevent abnormal termination of the program.
+With the help of the throws keyword, we can provide information to the caller of the method about the exception.
+
+
+
+Benefits of exception : 
+
+1 : separtion of working code from error handling code : try {} , catch {}
+2 : not stoping exceution,
+3 : try{
+
+},
+catch(){
+
+}
+catch(){
+
+}
+
+
+Steps to Create a Custom Exception in Java
+
+Create a Custom Exception Class
+Extend from Exception (Checked) or RuntimeException (Unchecked)
+Add Constructors
+Throw the Custom Exception in Logic
+Catch the Custom Exception
+
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Scanner;
+
+public class RegistrationSystem {
+    
+    // Method to validate age
+    public void registerUser(String name, int age) throws InvalidAgeException {
+        if (age < 18) {
+            throw new InvalidAgeException("Registration failed: Age must be 18 or above.");
+        }
+        System.out.println("Registration successful for " + name);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        RegistrationSystem regSys = new RegistrationSystem();
+
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+
+        try {
+            regSys.registerUser(name, age);
+        } catch (InvalidAgeException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        scanner.close();
+    }
+}
+// Custom Exception for Age Validation
+class InvalidAgeException extends Exception {
+    // Constructor with message
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+
+
+
+Benefits of Exception Handling in Java
+Exception handling is a crucial part of Java programming that ensures the application runs smoothly even when unexpected errors occur. Here are the key benefits:
+
+Summary                      Table of Benefits
+Benefit                   	Description
+Stability & Continuity	Prevents abrupt program termination
+Clean Code Structure	Separates logic from error handling
+Meaningful Error Info	Provides clear error details for debugging
+Custom Exception Logic	Handles business-specific errors efficiently
+Recovery Mechanism	    Enables fallback strategies for errors
+Fault Tolerance	        Ensures minimal disruption during failures
+Resource Management	    Ensures proper closure of resources
+Exception Propagation	Centralizes error handling logic
+Debugging Support	    Provides stack traces for easier debugging
+Improved UX         	Displays user-friendly error messages
+
+
+
+
+2 : Some basic collection frameworks:
+(List,Set,Map,Queues,Generics)
+
+
+3: Reading and writing files:
+(file operation - reading,writing,appending)
+
+Java File Handling
+The File class from the java.io package, allows us to work with files.
+
+To use the File class, create an object of the class, and specify the filename or directory name
+
+Link : https://www.w3schools.com/java/java_files.asp
+
+
+
+collection frameworks:
+
+List,Map,Set,Queues,Generics
+
+
+Java Collections Framework
+The Java collections framework provides a set of interfaces and classes to implement various data structures and algorithms.
+
+For example, the LinkedList class of the collections framework provides the implementation of the doubly-linked list data structure.
+
+    Use ArrayList for fast retrieval.
+✅ Use LinkedList for frequent insertions/deletions.
+✅ Use HashSet when duplicates are not required.
+✅ Use HashMap for fast lookups based on keys.
+✅ Use Stack for backtracking algorithms.
+✅ Use PriorityQueue for sorting-based queues
+
+
+Threads, Thread class , Runnable interface , Syncronization
+
+
+Interface are class itself (blueprint of class itself , that has only one abstract method)
+abstract method is a method whosse body is not defineed , only delclataions are made
+
+interface runnable{
+    
+void print();
+
+}
+
+
+
+Threads , Thread class, runnable interface , Synchronization 
+
+
+Java Threads : 
+
+Threads allows a program to operate more efficiently by doing multiple things at the same time.
+Threads can be used to perform complicated tasks in the background without interrupting the main program.
+
+Creating a Thread : 
+
+There are two ways to create a thread.
+
+1 : It can be created by extending the Thread class and overriding its run() method:
+
+Extend SyntaxGet your own Java Server
+public class Main extends Thread {
+  public void run() {
+    System.out.println("This code is running in a thread");
+  }
+}
+Another way to create a thread is to implement the Runnable interface:
+
+Implement Syntax
+public class Main implements Runnable {
+  public void run() {
+    System.out.println("This code is running in a thread");
+  }
+}
+
+Running Threads :  
+
+If the class extends the Thread class, the thread can be run by creating an instance of the class and call its start() method:
+
+Extend Example
+public class Main extends Thread {
+  public static void main(String[] args) {
+    Main thread = new Main();
+    thread.start();
+    System.out.println("This code is outside of the thread");
+  }
+  public void run() {
+    System.out.println("This code is running in a thread");
+  }
+}
+
+
+
+2 : If the class implements the Runnable interface, the thread can be run by passing an instance of the class to a Thread object's constructor and then calling the thread's start() method:
+
+Implement Example
+public class Main implements Runnable {
+  public static void main(String[] args) {
+    Main obj = new Main();
+    Thread thread = new Thread(obj);
+    thread.start();
+    System.out.println("This code is outside of the thread");
+  }
+  public void run() {
+    System.out.println("This code is running in a thread");
+  }
+}
+
+
+Concurrency Problems : 
+
+Because threads run at the same time as other parts of the program, 
+there is no way to know in which order the code will run. When the threads and main program 
+are reading and writing the same variables, the values are unpredictable. The problems that 
+result from this are called concurrency problems.
+
+
+Concurrency Problems : 
+
+Race Condition: Occurs when multiple threads access shared data simultaneously, leading to inconsistent results. It happens when the code is not thread-safe.
+Deadlock: Happens when two or more threads are blocked forever, each waiting for the other to release a lock.
+Livelock: Threads are active but unable to make progress because they keep responding to each other in an endless loop.
+Thread Starvation: A thread is perpetually denied access to resources because other threads are given priority.
+Priority Inversion: Occurs when a low-priority thread holds a lock needed by a high-priority thread, blocking its progress.
+
+
+Solution of the Problem: 
+Synchronization 
+
+Synchronization in Java
+
+In Multithreading, Synchronization is crucial for ensuring that multiple threads 
+operate safely on shared resources. Without Synchronization, data inconsistency or 
+corruption can occur when multiple threads try to access and modify shared variables simultaneously. 
+In Java, it is a mechanism that ensures that only one thread can access a resource at any given time.
+This process helps prevent issues such as data inconsistency and race conditions when multiple threads
+interact with shared resources.
+potentially causing data inconsistency. Java provides synchronization to prevent race conditions.
+
+we have seen exaple of Synchronization using Synchronised keyword in Synchronization method.
+
+Multithreading in Java
+
+Multithreading is a Java feature that allows concurrent execution of two or more parts of a program for maximum utilization of CPU.
+ Each part of such program is called a thread. So, threads are light-weight processes within a process.
+
+
+Differences between "extending" and "implementing" Threads
+
+The major difference is that when a class extends the Thread class, 
+you cannot extend any other class, but by implementing the Runnable interface,
+it is possible to extend from another class as well, like: class MyClass extends OtherClass
+implements Runnable.
+
+
+Link: 
+https://www.w3schools.com/java/java_threads.asp,
+https://www.geeksforgeeks.org/multithreading-in-java/
+https://www.geeksforgeeks.org/synchronization-in-java/
+https://www.geeksforgeeks.org/java-threads/
+https://www.geeksforgeeks.org/importance-of-thread-synchronization-in-java/
+https://www.geeksforgeeks.org/race-condition-vulnerability/
+
+
+
+
+
+
+interface ,  functional interface , lambda expresssions , streams 
+
+What is Functional Interface?
+If a Java interface contains one and only one abstract method then it is termed as functional interface. This only one method specifies the intended purpose of the interface.
+
+For example, the Runnable interface from package java.lang; is a functional interface because it constitutes only one method i.e. run().
+
+Example 1: Define a Functional Interface in java
+import java.lang.FunctionalInterface;
+@FunctionalInterface
+public interface MyInterface{
+    // the single abstract method
+    double getValue();
+}
+In the above example, the interface MyInterface has only one abstract method getValue(). Hence, it is a functional interface.
+
+Built-In Java Functional Interfaces
+Since Java SE 1.8 onwards, there are many interfaces that are converted into functional interfaces. All these interfaces are annotated with @FunctionalInterface. These interfaces are as follows:
+
+Runnable: This interface only contains the run() method.
+Comparable: This interface only contains the compareTo() method.
+ActionListener: This interface only contains the actionPerformed() method.
+Callable: This interface only contains the call() method.
+
+
+
+Abstract Method : 
+An abstract method is a method that:
+
+✅ Key Features:
+
+Has no body (only declaration).
+Declared using the abstract keyword.
+Must be implemented by any subclass.
+
+
+
+
+Example of Abstract Method in an Abstract Class:
+
+
+abstract class Shape {
+    // Abstract method (no body)
+    abstract void draw();
+
+    // Non-abstract method
+    void displayInfo() {
+        System.out.println("This is a shape.");
+    }
+}
+
+
+Abstract Class
+An abstract class is a class that:
+
+✅ Key Features:
+
+Cannot be instantiated directly.
+Can contain abstract methods (without a body) and concrete methods (with a body).
+Can have constructors.
+Used when you want to provide common behavior to multiple derived classes.
+Example of Abstract Class:
+
+
+abstract class Vehicle {
+    // Abstract method
+    abstract void start();
+
+    // Concrete method
+    void fuelCapacity() {
+        System.out.println("Fuel capacity is 50L");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Car starts with a key.");
+    }
+}
+
+class Bike extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Bike starts with a self-start button.");
+    }
+}
+Usage:
+
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle car = new Car();
+        car.start();          // Output: Car starts with a key.
+        car.fuelCapacity();   // Output: Fuel capacity is 50L
+
+        Vehicle bike = new Bike();
+        bike.start();         // Output: Bike starts with a self-start button.
+    }
+}
+
+
+. Interface
+An interface is a blueprint of a class that:
+
+✅ Key Features:
+
+Contains only abstract methods by default (until Java 8).
+From Java 8 onward, default and static methods can be added with a body.
+Interfaces provide full abstraction and are implemented by classes using the implements keyword.
+All methods in an interface are public and abstract by default.
+Example of Interface:
+
+
+interface Animal {
+    void eat();     // Abstract method
+    void sleep();   // Abstract method
+}
+
+class Dog implements Animal {
+    @Override
+    public void eat() {
+        System.out.println("Dog eats bones.");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println("Dog sleeps in a kennel.");
+    }
+}
+Usage:
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();    // Output: Dog eats bones.
+        dog.sleep();  // Output: Dog sleeps in a kennel.
+    }
+}
+
+
+Functional Interface
+A functional interface is an interface that has exactly one abstract method. Functional interfaces are used primarily for lambda expressions in Java.
+
+✅ Key Features:
+
+Contains only one abstract method (but can have multiple default or static methods).
+Marked with the @FunctionalInterface annotation (optional but recommended).
+Commonly used in lambda expressions and method references.
+Example of Functional Interface:
+
+java
+Copy
+Edit
+@FunctionalInterface
+interface Greeting {
+    void sayHello(String name); // Only one abstract method
+}
+
+
+Lamba expressions ---> anonymous function
+
+(with out a name ) used to implement functional interface.
+
+(its makes the code more readable and eleminated more unwanted boilerplate)
+
+
+syntax:
+
+()->expressions
+()->{statements}
+
+
+
+example: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
